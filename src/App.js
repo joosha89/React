@@ -1,9 +1,12 @@
 import React, {useState} from "react";
-import './App.css';
-import {Button, Progress} from 'semantic-ui-react';
+import Data from "./data";
+
+//import './App.css';
+/* import {Button, Progress} from 'semantic-ui-react'; */
 
 
 function App() {
+    let [shoes, shoesState] = useState(Data);
     {/* let [title, titleFn] = useState(["용인", "수지", "죽전"]);
     let [best, setBestFn] = useState(0); */}
 
@@ -15,15 +18,32 @@ function App() {
         console.log(arr);
     } */
 
+    function conLog() {
+        console.log(shoes);
+    }
+
     return (
         <div className="App">
-            {/* <button onClick={() => { updateState() }}>제목바꾸기</button>
-            <div className="nav">
-                <div>{title[0]}</div> <button onClick={() => { setBestFn(best + 1) }}>👍</button> <div>{best}</div>
-            </div>
+            <button onClick={conLog()}>conLog</button>
 
-            <Modal/> */}
-            <Button onClick={ ()=>{ alert("어 f삐용"); } }>눌러보세요!</Button>
+            <div className="row">
+                {shoes.map((num, i) => {
+                    return <Card shoes={num} i={i} key={i} />;
+                })}
+            </div>
+        </div>
+    );
+}
+
+function Card(props) {
+    console.log(props);
+    return (
+        <div className="col-md-4">
+            <img src={props.shoes.img} width="100%" />
+            <h4>{props.shoes.title}</h4>
+            <p>
+                {props.shoes.content} &{props.shoes.price}
+            </p>
         </div>
     );
 }
