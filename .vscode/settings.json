@@ -1,0 +1,5 @@
+{
+    "php.validate.run": "onType",
+    "php.validate.enable": false,
+    "php.suggest.basic": false
+}
