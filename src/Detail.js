@@ -10,7 +10,7 @@ const Detail = (props) => {
   });
 
   const setCart = () => {
-
+    localStorage.setItem();
   }
 
   return (
