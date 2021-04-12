@@ -4,6 +4,7 @@ import { Button,  Navbar,  Nav,  Jumbotron,  Form,  FormControl} from 'react-boo
 import Detail from './Detail';
 import Cart from './Cart';
 import Data from './data';
+import Item from './Item';
 
 
 //import './App.css';
@@ -29,7 +30,7 @@ const App: React.FunctionComponent = () => {
       <Switch>
         <Route exact path="/">
           <Jumbotron></Jumbotron>
-          <div className="">
+          <div className="" style={{textAlign: "center"}}>
             {shoes.map((num, i) => {
               return (
                 <Link to={'/detail/' + i}>
@@ -45,24 +46,14 @@ const App: React.FunctionComponent = () => {
         </Route>
 
         <Route path="/cart/">
-          {/* <Cart></Cart> */}
+          <Cart></Cart>
         </Route>
       </Switch>
     </>
   );
 }
 
-function Item(props: any) {
-  return (
-    <div className="item" style={{ display: 'inline-block', width: '40vh' }}>
-      <img src={props.shoes.img} style={{ width: '100%' }} alt=""/>
-      <h4>{props.shoes.title}</h4>
-      <p>
-        {props.shoes.content} & {props.shoes.price}
-      </p>
-    </div>
-  );
-}
+
 
 
 export default App;
