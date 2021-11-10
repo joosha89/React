@@ -2,6 +2,15 @@ import React, { useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { Cart } from './Cart';
 import UseLocalStorage from 'components/useLocalStorage';
+import styled from "styled-components";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import DetailStyles from './Detail.css';
+
+const StyledButton = styled.button`
+  margin-right: 1vh
+`;
 
 const Detail = (props) => {
   let history = useHistory();
@@ -12,10 +21,15 @@ const Detail = (props) => {
 
   //const [cartId, setCartId] = UseLocalStorage(searchItem.id, true);
 
+  const setOrder = () => {
+    alert("아직 미구현이야 돌아가.");
+  }
+
   const setCart = () => {
     const Data =  JSON.parse(localStorage.getItem("cart")) || []
 
     console.log(Data);
+
 
     Data.push(searchItem.id);
 
@@ -31,26 +45,36 @@ const Detail = (props) => {
   }
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6">
-          <img src={searchItem.img} style={{ width: '100%' }} />
-
-          <div className="col-md-6 mt-4">
-            <h4 className="pt-5">{searchItem.title}</h4>
+    <Container className="detail_wrap">
+      <Row>
+        <Col sm={6}><img src={process.env.PUBLIC_URL+"/"+searchItem.img} style={{ width: '100%' }} /></Col>
+        <Col sm={6}>
+          <div className="info">
+            <h4>{searchItem.title}</h4>
             <p>{searchItem.content}</p>
-            <p>{searchItem.price}</p>
-            <button className="btn btn-danger">주문하기</button>
-            <button onClick={() => setCart() } className="btn btn-warning">카트담기</button>
-            <button onClick={() => { history.push('/'); }} className="btn btn-danger">뒤로가기</button>
+            <p>{searchItem.price} ₩(KRW)</p>
+
+            <div className="action">
+              <StyledButton className="btn btn-success" onClick={ () => setOrder() }>주문하기</StyledButton>
+              <StyledButton onClick={() => setCart() } className="btn btn-primary">카트담기</StyledButton>
+              <StyledButton onClick={() => { history.push('/'); }} className="btn btn-danger">뒤로가기</StyledButton>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+      <Row className="justify-content-md-center tab">
+        <Col>상세정보</Col>
+        <Col>리뷰</Col>
+        <Col>Q&A</Col>
+        <Col>반품/교환정보</Col>
+      </Row>
+      <Row className="justify-content-md-center contents">
+        <Col md="auto">contents section</Col>
+      </Row>
+    </Container>
   );
 }
 
 
 
 export default Detail;
-

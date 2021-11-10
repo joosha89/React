@@ -1,5 +1,8 @@
 {
     "php.validate.run": "onType",
     "php.validate.enable": false,
-    "php.suggest.basic": false
+    "php.suggest.basic": false,
+    "prettier.tabWidth": 2,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
 }

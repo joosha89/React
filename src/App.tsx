@@ -5,10 +5,10 @@ import Detail from './Detail';
 import Cart from './Cart';
 import Data from './data';
 import Item from './Item';
-
-
-//import './App.css';
-/* import {Button, Progress} from 'semantic-ui-react'; */
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import './App.css';
 
 const App: React.FunctionComponent = () => {
   let [shoes, shoesState] = useState(Data);
@@ -16,7 +16,7 @@ const App: React.FunctionComponent = () => {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="dark" variant="dark" style={{marginBottom: "50px"}}>
         <Navbar.Brand href="/">HOME</Navbar.Brand>
         <Nav className="mr-auto">
           <Link to="/cart">CART</Link>
@@ -29,16 +29,18 @@ const App: React.FunctionComponent = () => {
 
       <Switch>
         <Route exact path="/">
-          <Jumbotron></Jumbotron>
-          <div className="" style={{textAlign: "center"}}>
-            {shoes.map((num, i) => {
-              return (
-                <Link to={'/detail/' + i}>
-                  <Item shoes={num} i={i} key={i} />;
-                </Link>
-              );
-            })}
-          </div>
+          {/* <Jumbotron></Jumbotron> */}
+          <Container className="contents" style={{ textAlign: "center" }}>
+            <Row className="justify-content-md-center">
+              {shoes.map((num, i) => {
+                return (
+                  <Link to={'/detail/' + num.id}>
+                    <Item shoes={num} i={i} key={i} />
+                  </Link>
+                );
+              })}
+            </Row>
+          </Container>
         </Route>
 
         <Route path="/detail/:id">

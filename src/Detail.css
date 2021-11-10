@@ -1,0 +1,30 @@
+.contents {
+  margin-top: 1vh;
+}
+.info {
+  color: white;
+  height: 100%;
+  position: static;
+}
+.action {
+  position: absolute;
+  bottom: 0px;
+}
+.tab {
+  text-align: center;
+  background: #363c46;
+  margin-top: 2vh;
+  color: white;
+  /* padding: 0.5rem; */
+  /* font-weight: bold; */
+  font-size: 18px;
+  height: 2.5rem;
+}
+.tab .col {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+.tab .col.on {
+  background: gray;
+}
