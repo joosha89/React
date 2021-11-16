@@ -1,5 +1,6 @@
 .contents {
   margin-top: 1vh;
+  color: white;
 }
 .info {
   color: white;
@@ -26,5 +27,5 @@
   flex-direction: column;
 }
 .tab .col.on {
-  background: gray;
+  background: #282c34;
 }

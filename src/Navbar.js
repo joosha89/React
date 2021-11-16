@@ -6,7 +6,7 @@ function Navbar() {
 
     return (
         <div className="container">
-            <Nav.Link><Link to="/">HOME</Link></Nav.Link>
+            <Nav.Link><Link to="/React">HOME</Link></Nav.Link>
             <Nav.Link><Link to="/detail">CART</Link></Nav.Link>
         </div>
     )

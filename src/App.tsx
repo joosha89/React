@@ -17,7 +17,7 @@ const App: React.FunctionComponent = () => {
   return (
     <>
       <Navbar bg="dark" variant="dark" style={{marginBottom: "50px"}}>
-        <Navbar.Brand href="/">HOME</Navbar.Brand>
+        <Navbar.Brand href="/React">HOME</Navbar.Brand>
         <Nav className="mr-auto">
           <Link to="/cart">CART</Link>
         </Nav>
@@ -32,13 +32,11 @@ const App: React.FunctionComponent = () => {
           {/* <Jumbotron></Jumbotron> */}
           <Container className="contents" style={{ textAlign: "center" }}>
             <Row className="justify-content-md-center">
-              {shoes.map((num, i) => {
-                return (
-                  <Link to={'/detail/' + num.id}>
-                    <Item shoes={num} i={i} key={i} />
-                  </Link>
-                );
-              })}
+              {shoes.map((data, i) => (
+                <Link to={'/detail/' + data.id}>
+                  <Item shoes={data} i={i} key={i} />
+                </Link>
+              ))}
             </Row>
           </Container>
         </Route>
@@ -54,8 +52,4 @@ const App: React.FunctionComponent = () => {
     </>
   );
 }
-
-
-
-
 export default App;
