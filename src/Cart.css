@@ -1,0 +1,22 @@
+.contents .th {
+  padding: 10px;
+  border-bottom: 2px solid #343a40;
+}
+.contents .data {
+  padding: 10px;
+}
+.contents .data img {
+  width: 60%;
+}
+.contents input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+}
+.contents .col:nth-child(1) {
+  flex-grow: 0;
+}
+.contents .col {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}

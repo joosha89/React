@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 const Item = (props) => {
   return (
     <Col className="item" style={{ display: 'inline-block', width: '37vh' }}>
-      <img src={process.env.PUBLIC_URL+"/"+props.shoes.img} style={{ width: '100%' }} alt=""/>
+      <img src={process.env.PUBLIC_URL+"/"+props.shoes.img} alt=""/>
       <div style={{ marginTop: "2vh", color: "white" }}>
         <h4 style={{ marginBottom: "0px" }}>{props.shoes.title}</h4>
         <p style={{ marginBottom: "0px" }}>{props.shoes.content}</p>

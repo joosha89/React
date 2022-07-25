@@ -20,6 +20,7 @@
   /* font-weight: bold; */
   font-size: 18px;
   height: 2.5rem;
+  cursor: pointer;
 }
 .tab .col {
   justify-content: center;

@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
-import { Button,  Navbar,  Nav,  Jumbotron,  Form,  FormControl} from 'react-bootstrap';
+import { Button,  Navbar,  Nav, Form,  FormControl} from 'react-bootstrap';
 import Detail from './Detail';
 import Cart from './Cart';
 import Data from './data';
-import Item from './Item';
-import Container from "react-bootstrap/Container";
+//import Item from './Item';
+import List from './List';
+/* import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import Col from "react-bootstrap/Col"; */
 import './App.css';
 
 const App: React.FunctionComponent = () => {
   let [shoes, shoesState] = useState(Data);
-  let [cartItem, cartItemState] = useState(0);
+  //let [cartItem, cartItemState] = useState(0);
 
   return (
     <>
@@ -30,7 +31,7 @@ const App: React.FunctionComponent = () => {
       <Switch>
         <Route exact path="/">
           {/* <Jumbotron></Jumbotron> */}
-          <Container className="contents" style={{ textAlign: "center" }}>
+          {/* <Container className="contents" style={{ textAlign: "center" }}>
             <Row className="justify-content-md-center">
               {shoes.map((data, i) => (
                 <Link to={'/detail/' + data.id}>
@@ -38,7 +39,8 @@ const App: React.FunctionComponent = () => {
                 </Link>
               ))}
             </Row>
-          </Container>
+          </Container> */}
+          <List shoes={shoes}></List>
         </Route>
 
         <Route path="/detail/:id">

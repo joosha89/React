@@ -7,13 +7,22 @@ import { HashRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
+import { transitions, positions, Provider as AlertProvider } from "react-alert"
+import AlertTemplate from "react-alert-template-basic"
+
+const alertOptions = {
+  offset: "50px",
+  timeout: 3000
+}
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
-      <App />
+      <AlertProvider template={AlertTemplate} {...alertOptions}>
+        <App />
+      </AlertProvider>
     </HashRouter>
   </React.StrictMode>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
