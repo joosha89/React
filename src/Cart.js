@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback } from "react"
-import { Link, Route, Switch } from 'react-router-dom';
-import Item from './Item';
+import { useState, useCallback } from "react"
+//import { Link, Route, Switch } from 'react-router-dom';
+//import Item from './Item';
 import Data from './data';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
