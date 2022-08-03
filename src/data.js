@@ -5,6 +5,7 @@ export default [
       content: 'ZENITH JC',
       price: '200,000',
       img: '/images/dexter_chu-custom-ga.jpg',
+      type: "acoustic",
   },
   {
       id: 2,
@@ -12,6 +13,7 @@ export default [
       content: 'G230MC',
       price: '289,000',
       img: '/images/gopher_g130mc.jpg',
+      type: "acoustic",
   },
   {
       id: 3,
@@ -19,6 +21,7 @@ export default [
       content: 'John mayer signature',
       price: '1,000,000',
       img: '/images/fender_stratocaster_john_mayer.jpg',
+      type: "electric",
   },
   {
       id: 4,
@@ -26,6 +29,7 @@ export default [
       content: 'SG Standard - Heritage Cherry',
       price: '2,210,000',
       img: '/images/gibson_sgs00hcch1.jpg',
+      type: "electric",
   },
   {
       id: 5,
@@ -33,6 +37,7 @@ export default [
       content: 'AFJ-91 Hollow Body',
       price: '790,000',
       img: '/images/ibanez_afj91.jpg',
+      type: "hollow",
   },
   {
       id: 6,
@@ -40,5 +45,6 @@ export default [
       content: '00-42 SC John Mayer',
       price: '1,690,000',
       img: '/images/martin_00-42-sc-john-mayer.jpg',
+      type: "acoustic",
   },
 ];

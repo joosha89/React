@@ -115,7 +115,7 @@ const Detail = (props) => {
 
   return (
     <Container className="detail_wrap">
-      <Row>
+      <Row style={{marginBottom: "20px"}}>
         <Col sm={6}><img src={process.env.PUBLIC_URL+"/"+searchItem.img} style={{ width: '70%' }} /></Col>
         <Col sm={6}>
           <div className="info">
