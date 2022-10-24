@@ -19,26 +19,22 @@ const tabsInfo = [
   {
     id: 0,
     name: "상세정보",
-    content:
-      "상세정보입니다."
+    content: "상세정보입니다."
   },
   {
     id: 1,
     name: "리뷰",
-    content:
-      "리뷰입니다."
+    content: "리뷰입니다."
   },
   {
     id: 2,
     name: "Q&A",
-    content:
-      "Q&A입니다."
+    content: "Q&A입니다."
   },
   {
     id: 3,
     name: "반품/교환정보",
-    content:
-      "반품/교환정보입니다."
+    content: "반품/교환정보입니다."
   }
 ];
 
@@ -125,8 +121,7 @@ const Detail = (props) => {
 
             <div className="action">
               <StyledButton className="btn btn-success" onClick={ () => setOrder() }>주문하기</StyledButton>
-              {/* {id != searchItem.id ? <StyledButton onClick={() => setCart() } className="btn btn-primary">장바구니 담기</StyledButton> : "장바구니에 있음"} */}
-              {/* {isCart} */}
+
               {
                 {
                 "Y": <StyledButton onClick={() => setCart("del") } className="btn btn-danger">장바구니 삭제</StyledButton>,

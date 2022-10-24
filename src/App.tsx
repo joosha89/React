@@ -24,16 +24,12 @@ const App: React.FunctionComponent = () => {
 
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{marginBottom: "20px"}}>
         <Container>
-          <Navbar.Brand /* href="/" */><Link to="/">JOOSHOP</Link></Navbar.Brand>
+          <Navbar.Brand><Link className="nav-brand" to="/">JOOSHOP</Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto" style={{margin: "auto"}}>
-              <NavDropdown title="Guitar" id="collasible-nav-dropdown" style={{color: "#fff", marginRight: "1rem"}}>
-                {/* <NavDropdown.Item eventKey="2.1" href="#/List/acoustic">Acoustic</NavDropdown.Item>
-                <NavDropdown.Item eventKey="2.2" href="#/List/hollow">Hollow</NavDropdown.Item>
-                <NavDropdown.Item eventKey="2.3" href="#/List/electric">Electric</NavDropdown.Item> */}
-                {/* <NavDropdown.Item eventKey="2.3" as={Link} to="/List/electric">Electric</NavDropdown.Item> */}
+              <NavDropdown title="Guitar" className="nav-links" id="collasible-nav-dropdown" style={{color: "#fff", marginRight: "1rem"}}>
                 <NavDropdown.Item eventKey="2.1" as={Link} to="/List/acoustic">Acoustic</NavDropdown.Item>
                 <NavDropdown.Item eventKey="2.2" as={Link} to="/List/hollow">Hollow</NavDropdown.Item>
                 <NavDropdown.Item eventKey="2.3" as={Link} to="/List/electric">Electric</NavDropdown.Item>

@@ -6,6 +6,8 @@ export default [
       price: '200,000',
       img: '/images/dexter_chu-custom-ga.jpg',
       type: "acoustic",
+      regDate: "2022-08-01 00:00:00",
+      featured: "7",
   },
   {
       id: 2,
@@ -14,6 +16,8 @@ export default [
       price: '289,000',
       img: '/images/gopher_g130mc.jpg',
       type: "acoustic",
+      regDate: "2022-08-02 00:00:00",
+      featured: "6",
   },
   {
       id: 3,
@@ -22,6 +26,8 @@ export default [
       price: '1,000,000',
       img: '/images/fender_stratocaster_john_mayer.jpg',
       type: "electric",
+      regDate: "2022-08-03 00:00:00",
+      featured: "5",
   },
   {
       id: 4,
@@ -30,6 +36,8 @@ export default [
       price: '2,210,000',
       img: '/images/gibson_sgs00hcch1.jpg',
       type: "electric",
+      regDate: "2022-08-04 00:00:00",
+      featured: "4",
   },
   {
       id: 5,
@@ -38,6 +46,8 @@ export default [
       price: '790,000',
       img: '/images/ibanez_afj91.jpg',
       type: "hollow",
+      regDate: "2022-08-05 00:00:00",
+      featured: "3",
   },
   {
       id: 6,
@@ -46,5 +56,7 @@ export default [
       price: '1,690,000',
       img: '/images/martin_00-42-sc-john-mayer.jpg',
       type: "acoustic",
+      regDate: "2022-08-06 00:00:00",
+      featured: "2",
   },
 ];
