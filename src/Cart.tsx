@@ -7,16 +7,16 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import './Cart.css';
 
+import { Data as TypesData } from './types/data' ;
+
 const Cart = () => {
   //console.log(state);
-  const cart =  JSON.parse(localStorage.getItem("cart")) || []
-  //let [shoes, shoesState] = useState(cart);
-  //let [shoes, shoesState] = useState(Data);
+  const cart =  JSON.parse(localStorage.getItem("cart") || "[]");
 
-  const dataInfo = [];
+  const dataInfo: TypesData[] = [];
   for (let i = 0; i < cart.length; i++) {
     const tmp = Data.filter((val, idx) => {
-      if (val.id == cart[i]) {
+      if (val.id === cart[i]) {
         dataInfo[i] = val;
       }
     });
@@ -26,12 +26,12 @@ const Cart = () => {
 
   const [shoes, shoesState] = useState(dataInfo);
 
-  const [checkedList, setCheckedList] = useState([]);
+  const [checkedList, setCheckedList] = useState<Array<number>>([]);
 
   const checkedAll = useCallback(
     (checked) => {
       if (checked) {
-        const tmpCheckedList = [];
+        const tmpCheckedList: Array<number> = [];
 
         shoes.forEach((list) => tmpCheckedList.push(list.id));
 
@@ -94,28 +94,13 @@ const Cart = () => {
         );
       })}
       <Row className="data footer">
-        {/* <Col>
-          <input
-            type="checkbox"
-            onChange={ (e) => checkedAll(e.target.checked) }
-            checked={ checkedList.length === 0 ? false : checkedList.length === shoes.length ? true : false }
-          />
-        </Col> */}
-        <Col style={{ flexGrow: "1" }}>
+        <Col style={{ flexGrow: 1 }}>
           <button className="btn btn-danger" onClick={ () => initCart() }>선택상품 삭제</button>
         </Col>
       </Row>
     </Container>
 
-    /* <Container className="contents" style={{ textAlign: "center" }}>
-      <Row className="justify-content-md-center">
-        {shoes.map((data, i) => (
-          <Link to={'/detail/' + data.id}>
-            <Item shoes={data} i={i} key={i} />
-          </Link>
-        ))}
-      </Row>
-    </Container> */
+
   );
 }
 export default Cart;

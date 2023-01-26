@@ -4,24 +4,23 @@ import { Button,  Navbar,  Nav, Form,  FormControl, NavDropdown, Container } fro
 import Detail from './Detail';
 import Cart from './Cart';
 import Data from './data';
+import { Data as TypesData } from './types/data';
 //import Item from './Item';
 import List from './List';
-/* import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col"; */
 import './App.css';
+
+
+
 
 const App: React.FunctionComponent = () => {
   let [shoes, shoesState] = useState(Data);
   //let [cartItem, cartItemState] = useState(0);
-  let expand = "md";
+  //let expand = "md";
 
 
 
   return (
     <>
-
-
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{marginBottom: "20px"}}>
         <Container>
           <Navbar.Brand><Link className="nav-brand" to="/">JOOSHOP</Link></Navbar.Brand>
@@ -34,7 +33,7 @@ const App: React.FunctionComponent = () => {
                 <NavDropdown.Item eventKey="2.2" as={Link} to="/List/hollow">Hollow</NavDropdown.Item>
                 <NavDropdown.Item eventKey="2.3" as={Link} to="/List/electric">Electric</NavDropdown.Item>
               </NavDropdown>
-              <NavLink className="nav-link" to="/Cart">CART{/* <Link to="/Cart">CART</Link> */}</NavLink>
+              <NavLink className="nav-link" to="/Cart">CART</NavLink>
             </Nav>
 
             <Form inline className="mr-auto navbar-nav">
@@ -45,27 +44,12 @@ const App: React.FunctionComponent = () => {
         </Container>
       </Navbar>
 
+
       <Routes>
-        <Route path="/*" element={<List shoes={shoes}></List>} />
-        <Route path="/List/:type" element={<List shoes={shoes}></List>} />
+        <Route path="/*" element={<List></List>} />
+        <Route path="/List/:type" element={<List></List>} />
         <Route path="/Detail/:id" element={<Detail shoes={shoes}></Detail>} />
         <Route path="/Cart" element={<Cart></Cart>} />
-
-        {/* <Route path="/*">
-          <List shoes={shoes}></List>
-        </Route>
-
-        <Route path="/List/:type">
-          <List shoes={shoes}></List>
-        </Route>
-
-        <Route path="/detail/:id">
-          <Detail shoes={shoes}></Detail>
-        </Route>
-
-        <Route path="/cart">
-          <Cart></Cart>
-        </Route> */}
       </Routes>
     </>
   );

@@ -1,8 +1,51 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import {useSelector, useDispatch } from 'react-redux';
 import { Dropdown, Form, Row, Col } from "react-bootstrap";
+import { setCategory, setSortType } from './store/reducers/category';
 
 const CATEGORY_KEY = "CATEGORY_KEY";
 const SORT_KEY = "SORT_KEY";
+
+const categories = {
+  1:{
+    name : "Featured",
+    value : "1",
+    sortName : "featured",
+    sort : "desc",
+  },
+  2:{
+    name : "Price",
+    value : "2",
+    sortName : "price",
+    sort : "asc",
+  },
+  4:{
+    name : "Title",
+    value : "4",
+    sortName : "title",
+    sort : "asc",
+  },
+  5:{
+    name : "Newest Arrivals",
+    value : "5",
+    sortName : "regDate",
+    sort : "desc",
+  }
+};
+
+const sortTypes = {
+  1: {
+    name : "Asc",
+    value : "1",
+    otherValue : "2",
+  },
+  2: {
+    name : "Desc",
+    value : "2",
+    otherValue : "1",
+  }
+};
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   <a
@@ -48,8 +91,13 @@ const CustomMenu = React.forwardRef(
   },
 );
 
-const CategoryFilter = ({ categories, category, setCatecory, sortTypes, sortType, setSortType }) => {
-  const init = () => {
+const CategoryFilter = () => {
+  let param = useParams();
+
+  //const [category, setCatecory] = useState("1");
+  //const [sortType, setSortType] = useState("1");
+
+  /* const init = () => {
     let data = localStorage.getItem(CATEGORY_KEY);
     if (data !== null) setCatecory(data);
 
@@ -57,7 +105,36 @@ const CategoryFilter = ({ categories, category, setCatecory, sortTypes, sortType
     if (data2 !== null) setSortType(data2);
   };
 
-  useEffect(init, []);
+  useEffect(init, []); */
+
+  const dispatch = useDispatch();
+
+
+  const guitar = useSelector((state) => state.guitar);
+
+  const dataInfo = guitar.filter(data => {
+    if (param.type === undefined || data.type === param.type) {
+      return data;
+    }
+  });
+
+  const stateCategory = useSelector((state) => state.category);
+
+  let category = stateCategory.category;
+  let sortType = stateCategory.sortType;
+
+
+  let sort = "";
+  let sortName = "";
+
+  Object.entries(categories).map((item, idx) => {
+    if (item[1].value === category) {
+      sort = item[1].sort;
+      sortName = item[1].sortName;
+    }
+  });
+
+
 
   return (
     <>
@@ -74,8 +151,10 @@ const CategoryFilter = ({ categories, category, setCatecory, sortTypes, sortType
                 key={idx}
                 eventKey={item[1].value}
                 onClick={() => {
-                  setCatecory(item[1].value);
-                  localStorage.setItem(CATEGORY_KEY, item[1].value);
+                  /* setCatecory(item[1].value);
+                  localStorage.setItem(CATEGORY_KEY, item[1].value); */
+
+                  dispatch(setCategory(item[1].value));
                 }}
                 active={item[1].value === category ? true : false}
               >
@@ -91,8 +170,10 @@ const CategoryFilter = ({ categories, category, setCatecory, sortTypes, sortType
             <button
               key={sortTypes[sortType]["value"]}
               onClick={() => {
-                setSortType(sortTypes[sortType]["otherValue"]);
+                //setSortType(sortTypes[sortType]["otherValue"]);
                 //localStorage.setItem(SORT_KEY, item.value);
+
+                dispatch(setSortType(sortTypes[sortType]["otherValue"]));
               }}
             >
               {sortTypes[sortType]["name"]}

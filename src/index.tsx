@@ -8,8 +8,11 @@ import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
-import { transitions, positions, Provider as AlertProvider } from "react-alert"
-import AlertTemplate from "react-alert-template-basic"
+//import { transitions, positions, Provider as AlertProvider } from "react-alert";
+//import AlertTemplate from "react-alert-template-basic";
+
+import {Provider} from 'react-redux';
+import store from './store/store';
 
 const alertOptions = {
   offset: "50px",
@@ -17,11 +20,13 @@ const alertOptions = {
 }
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <AlertProvider template={AlertTemplate} {...alertOptions}>
-        <App />
-      </AlertProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        {/* <AlertProvider template={AlertTemplate} {...alertOptions}> */}
+          <App />
+        {/* </AlertProvider> */}
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
