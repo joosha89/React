@@ -8,6 +8,7 @@ interface Data {
   type: string;
   regDate: string;
   featured: number;
+  [prop: string]: any;
 }
 
 export type { Data };

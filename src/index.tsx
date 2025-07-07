@@ -1,34 +1,45 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client'; // createRoot를 사용하기 위해 변경
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-//import { HashRouter } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
-/* import 'semantic-ui-css/semantic.min.css' */
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
-//import { transitions, positions, Provider as AlertProvider } from "react-alert";
-//import AlertTemplate from "react-alert-template-basic";
+//import {Provider} from 'react-redux';
+//import store from './store/store';
 
-import {Provider} from 'react-redux';
-import store from './store/store';
+
 
 const alertOptions = {
   offset: "50px",
   timeout: 3000
 }
-ReactDOM.render(
-  <React.StrictMode>
+
+console.log("index.tsx");
+
+const root = ReactDOM.createRoot(document.getElementById('root')!);
+
+root.render(
+  /*<React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        {/* <AlertProvider template={AlertTemplate} {...alertOptions}> */}
           <App />
-        {/* </AlertProvider> */}
       </BrowserRouter>
     </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>*/
+
+  <React.StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    {/* <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider> */}
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -4,25 +4,25 @@ import {createSlice} from "@reduxjs/toolkit";
 const categories = {
   1:{
     name : "Featured",
-    value : "1",
+    value : 1,
     sortName : "featured",
     sort : "desc",
   },
   2:{
     name : "Price",
-    value : "2",
+    value : 2,
     sortName : "price",
     sort : "asc",
   },
   4:{
     name : "Title",
-    value : "4",
+    value : 4,
     sortName : "title",
     sort : "asc",
   },
   5:{
     name : "Newest Arrivals",
-    value : "5",
+    value : 5,
     sortName : "regDate",
     sort : "desc",
   }
@@ -31,13 +31,13 @@ const categories = {
 const sortTypes = {
   1: {
     name : "Asc",
-    value : "1",
-    otherValue : "2",
+    value : 1,
+    otherValue : 2,
   },
   2: {
     name : "Desc",
-    value : "2",
-    otherValue : "1",
+    value : 2,
+    otherValue : 1,
   }
 };
 

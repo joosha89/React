@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import {useSelector, useDispatch } from 'react-redux';
 
-/* import Cart from './Cart';
-import Data from './data'; */
 import Item from './Item';
 import CategoryFilter from './CategoryFilter';
 import { Container, Dropdown, Form } from "react-bootstrap";
-/* import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col"; */
 import { Link, useParams } from 'react-router-dom';
 import "./List.css";
 import { filterList } from './store/reducers/guitar';
@@ -16,29 +12,16 @@ import { setCategory, setSortType } from './store/reducers/category';
 
 import { Data as TypesData } from './types/data' ;
 
-
-
-/* const sortTypes = {
-  1: {
-    name : "Asc",
-    value : "1",
-    otherValue : "2",
-  },
-  2: {
-    name : "Desc",
-    value : "2",
-    otherValue : "1",
-  }
-}; */
-
+import { useAppSelector, useAppDispatch } from './store/hooks';
 
 
 const List = () => {
   let param = useParams();
 
-  const stateGuitar = useSelector((state: RootState) => state.guitar);
+  //const stateGuitar = useSelector((state: RootState) => state.guitar);
+  const stateGuitar = useAppSelector((state) => state.guitar);
 
-  console.log(stateGuitar);
+  //console.log(stateGuitar);
 
   const dataInfo = stateGuitar.filter(data => {
     if (param.type === undefined || data.type === param.type) {
@@ -48,19 +31,16 @@ const List = () => {
 
   //const dataInfo = stateGuitar.filter((data: TypesData) => data !== searchItem?.id);
 
-  const stateCategory = useSelector((state) => state.category);
+  //const stateCategory = useSelector((state) => state.category);
+  const stateCategory = useAppSelector((state) => state.category);
 
-  let category = stateCategory.category;
-  let sortType = stateCategory.sortType;
+  let category = Number(stateCategory.category);
+  let sortType = Number(stateCategory.sortType);
   let categorySortName = stateCategory.categorySortName;
 
-  //console.log(stateCategory);
-
-
-  dataInfo.sort(function (a, b) {
-    //console.log(a);
-    let val1 = "";
-    let val2 = "";
+  dataInfo.sort(function (a: TypesData, b: TypesData): any {
+    let val1 = 0;
+    let val2 = 0;
 
     if (category !== 4 && category !== 5) {
       val1 = Number(String(a[`${categorySortName}`]).replaceAll(',', ''));
@@ -71,10 +51,17 @@ const List = () => {
     }
 
     if (category === 5) {
+      let val1Date = +new Date(val1);
+      let val2Date = +new Date(val2);
+
       if (sortType === 2) {
-        return new Date(val2) - new Date(val1);
+        //return new Date(val2) - new Date(val1);
+
+        return val2Date - val1Date;
       } else {
-        return new Date(val1) - new Date(val2);
+        //return new Date(val1) - new Date(val2);
+
+        return val1Date - val2Date;
       }
     }
 
@@ -90,20 +77,26 @@ const List = () => {
     }
   });
 
-
-
   return (
     <Container className="contents" style={{ textAlign: "center" }}>
       <CategoryFilter/>
 
       <div className="justify-content-md-center" style={{ justifyContent: "center!important" }}>
-        {dataInfo.map((data) => {
+        {/* {dataInfo.map((data) => {
           return (
             param.type === undefined || data.type === param.type
             ? <Link key={data.id} to={'/detail/' + data.id} style={{ width: "auto" }}>
                 <Item shoes={data} />
               </Link>
             : ""
+          )
+        })} */}
+
+        {dataInfo.map((data) => {
+          return (
+            <Link key={data.id} to={'/detail/' + data.id} style={{ width: "auto" }}>
+              <Item shoes={data} />
+            </Link>
           )
         })}
       </div>
